@@ -109,6 +109,28 @@ View the Playwright HTML report:
 npx playwright show-report
 ```
 
+
+## Test Execution
+
+Latest Execution: November 1, 2026
+
+| Item | Result |
+|---|---|
+| Framework | Playwright Test |
+| Language | TypeScript |
+| CI/CD | GitHub Actions |
+| Total Tests | 10 |
+| Passed | 10 |
+| Failed | 0 |
+| Execution Status | Passed |
+
+**Execution Environment:** GitHub Actions (Ubuntu)
+
+**Trigger:** Manual workflow dispatch
+
+*Note: Results reflect the first recorded successful execution. Test results may vary between runs.*
+
+
 ## Learning Objectives
 
 - Understand REST API testing concepts.
