@@ -1,67 +1,129 @@
-# Playwright API CRUD Testing
+# Restful Booker API Automation Testing
+
+API Automation Testing project using **Playwright** and **TypeScript** to validate REST API functionality on the Restful Booker demo application.
 
 ## Project Overview
 
-This project demonstrates API testing using **Playwright** and **TypeScript**. It focuses on validating CRUD operations and verifying API responses.
+This project focuses on testing API authentication and booking management functionality using Playwright APIRequestContext.
+
+The test suite covers API requests, response status codes, response body validation, authentication handling, and booking operations.
+
+**Base URL:** https://restful-booker.herokuapp.com
 
 ## Tech Stack
 
-- Playwright
-- TypeScript
-- REST API
-- GitHub
+- **Language:** TypeScript
+- **Test Framework:** Playwright Test
+- **Runtime:** Node.js
+- **API Testing:** Playwright APIRequestContext
+- **Reporting:** Playwright HTML Report / Ortoni Report
 
-## Test Scope
+## Project Structure
 
-The API CRUD test covers the following operations:
-
-- **Create (POST):** Create a new object and validate the response.
-- **Read (GET):** Retrieve the created object and verify its data.
-- **Update (PUT):** Update the object and validate the updated values.
-- **Delete (DELETE):** Delete the object and verify that it is no longer available.
-
-## API Under Test
-
-- Base URL: `https://api.restful-api.dev`
-- Endpoint: `/objects`
-
-## How to Run
-
-### Prerequisites
-
-- Node.js
-- npm
-- Playwright
-
-### Setup
-
-Clone the repository:
-
-```bash
-git clone https://github.com/harenoleon/playwright-api-testing.git
-cd playwright-api-testing
+```text
+Restful-Booker-API-Automation/
+│
+├── tests/
+│   └── api_auth.spec.ts
+│
+├── page/
+│   └── api_function.ts
+│
+├── package.json
+├── package-lock.json
+├── playwright.config.ts
+├── tsconfig.json
+└── .gitignore
 ```
 
-Install dependencies:
+## Test Coverage
+
+| Module | Test Scenario |
+|---|---|
+| Authentication | Create authentication token |
+| Booking | Retrieve all booking IDs |
+| Booking | Retrieve a non-existent booking |
+| Booking | Create a new booking |
+| Booking | Create booking with invalid data |
+| Booking | Update booking with valid token |
+| Authentication | Update booking with invalid token |
+| Booking | Delete an existing booking |
+| Authentication | Delete booking with invalid credentials / ID |
+
+*Note: Test scenarios are based on the current test implementation. Invalid ID and invalid authentication should be tested independently to isolate each condition.*
+
+## Key Testing Techniques
+
+- Validate HTTP response status codes.
+- Verify API response body and data types.
+- Validate authentication token handling.
+- Test positive and negative scenarios.
+- Use reusable helper functions for token and booking creation.
+- Validate booking update and deletion operations.
+
+## Installation
+
+### 1. Clone the repository
 
 ```bash
-npm install
+git clone https://github.com/harenoleon/Restful-Booker-API-Automation-.git
 ```
 
-Run the API CRUD test:
+### 2. Navigate to the project
 
 ```bash
-npx playwright test tests/apiCRUD.spec.ts
+cd Restful-Booker-API-Automation-
 ```
 
-## Validation
+### 3. Install dependencies
 
-The test validates HTTP response status codes, object IDs, object properties, updated values, and deletion behavior.
+```bash
+npm ci
+```
 
-## Known Limitations
+### 4. Install Playwright browser
 
-The public API may enforce request limits. Test execution can fail when the API quota is exhausted or the service is unavailable.
+```bash
+npx playwright install chromium
+```
+
+## Run Tests
+
+Run the API authentication test suite:
+
+```bash
+npx playwright test tests/api_auth.spec.ts --project=chromium
+```
+
+Run tests in headed mode:
+
+```bash
+npx playwright test tests/api_auth.spec.ts --project=chromium --headed
+```
+
+## Test Reports
+
+View the Playwright HTML report:
+
+```bash
+npx playwright show-report
+```
+
+## Learning Objectives
+
+- Understand REST API testing concepts.
+- Practice API authentication and authorization.
+- Validate HTTP methods and response codes.
+- Design positive and negative API test scenarios.
+- Build reusable API helper functions.
+- Develop practical API automation testing skills using Playwright and TypeScript.
 
 ## Project Status
 
-This project is a work in progress. Test coverage and documentation may be expanded as the project develops.
+**In Progress**
+
+This project is part of my QA Automation learning journey, focusing on API testing, authentication, booking CRUD operations, and test automation practices.
+
+## Author
+
+GitHub: https://github.com/harenoleon
